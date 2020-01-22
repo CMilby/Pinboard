@@ -1,0 +1,22 @@
+.menu {
+	background-color: #202020;
+	height: 30px;
+	border-bottom: 2px solid #444444;
+	border-left: 2px solid #444444;
+}
+
+.menu-span button {
+	width: 40px;
+	height: 30px;
+	border: none;
+	background-color: #202020;
+	color: #d6d6d6;
+	outline: none;
+	display: inline-block;
+}
+
+.menu-span span {
+	width: 2px;
+	color: #444444;
+	border-left: 2px solid #444444;
+}

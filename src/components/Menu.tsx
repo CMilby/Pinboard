@@ -5,13 +5,16 @@ import {
 	faUndo,
 	faCode,
 	faQuestionCircle,
-	faEnvelope
+	faEnvelope,
+	faPalette
 } from "@fortawesome/free-solid-svg-icons";
 
 import "../css/Menu.css";
+import "../css/MenuTheme.css";
 
 interface IMenuProps {
 	historySize: number;
+	theme: string;
 
 	createWindow: (
 		title: string,
@@ -23,6 +26,8 @@ interface IMenuProps {
 	) => void;
 
 	onUndo: () => void;
+
+	toggleThemeSelection: () => void;
 }
 
 interface IMenuState {}
@@ -37,6 +42,7 @@ export default class Menu extends Component<IMenuProps, IMenuState> {
 			this
 		);
 		this.handleCodeButtonClick = this.handleCodeButtonClick.bind(this);
+		this.handleThemeButtonClick = this.handleThemeButtonClick.bind(this);
 	}
 
 	handleUndoButtonClick() {
@@ -45,12 +51,23 @@ export default class Menu extends Component<IMenuProps, IMenuState> {
 
 	handleHelpButtonClick() {
 		this.props.createWindow(
-			"Help",
-			"This is some help text",
+			"Pinboard Help",
+			"Pinboard is a not taking app that allows you to draw new windows to take notes in. " +
+				"Click on the windows title to rename the window or click on the window " +
+				"body to type in the note. Click and drag your mouse anywhere else " +
+				"to create a new window. Drag from a window's lower right corner to resize " +
+				"your window or click and drag in the window title to move it around. " +
+				"Right click on a window to lock the size or position and then right click again " +
+				"to unlock it. All changes are saved to local storage so " +
+				"all your notes will be kept even when you close the window.\n\n" +
+				"Click on the palette icon to change Pinboard's theme or the undo button " +
+				"to undo the most recent changes you've made.\n\nFind a bug? Let me know! " +
+				"Send me an email to cmilby99@gmail.com or see the code yourself at " +
+				"http://github.com/CMilby/Pinboard and file an issue.",
 			50,
 			50,
-			300,
-			300
+			600,
+			265
 		);
 	}
 
@@ -68,34 +85,50 @@ export default class Menu extends Component<IMenuProps, IMenuState> {
 	handleCodeButtonClick() {
 		this.props.createWindow(
 			"Source Code",
-			"The code for Pinboard is completely open source and can be viewed at\n\nhttps://github.com/CMilby/Pinboard",
+			"The code for Pinboard is completely open source and can be viewed at\n\n" +
+				"https://github.com/CMilby/Pinboard\n\nFeel free to file an issue, make " +
+				"a pull request, or fork the code for your own projects!",
 			100,
 			100,
 			300,
-			125
+			175
 		);
 	}
 
+	handleThemeButtonClick() {
+		this.props.toggleThemeSelection();
+	}
+
 	render() {
-		let undoColor = this.props.historySize > 0 ? "#fff" : "#444444";
+		let undoColor =
+			this.props.historySize > 0
+				? `undo-notempty-${this.props.theme}`
+				: `undo-empty-${this.props.theme}`;
 
 		return (
 			<div
-				className="menu"
+				className={`menu menu-${this.props.theme}`}
 				style={{
 					position: "absolute",
 					top: "0px",
 					right: "0px",
-					width: "166px"
+					width: "208px"
 				}}
 			>
-				<span className="menu-span">
+				<span className={`menu-span menu-span-${this.props.theme}`}>
 					<button onClick={this.handleUndoButtonClick}>
 						<FontAwesomeIcon
-							className="fa-lg"
+							className={`fa-lg ${undoColor}`}
 							icon={faUndo}
 							fixedWidth
-							color={undoColor}
+						/>
+					</button>
+					<span />
+					<button onClick={this.handleThemeButtonClick}>
+						<FontAwesomeIcon
+							className="fa-lg"
+							icon={faPalette}
+							fixedWidth
 						/>
 					</button>
 					<span />

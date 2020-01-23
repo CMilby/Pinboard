@@ -1,0 +1,11 @@
+.theme-root {
+	margin: auto;
+}
+
+.theme {
+	float: left;
+	margin: 4px;
+	margin-right: 2px;
+	width: 20px;
+	height: 20px;
+}

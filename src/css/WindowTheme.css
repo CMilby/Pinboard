@@ -1,0 +1,254 @@
+.window-root-dark {
+	color: #d6d6d6;
+}
+
+.window-head-dark {
+	background-color: #202020;
+	border-top: 2px solid #444444;
+	border-left: 2px solid #444444;
+	border-right: 2px solid #444444;
+}
+
+.window-body-dark {
+	background-color: #202020;
+	border: 2px solid #444444;
+}
+
+.x-button-dark {
+	background-color: #202020;
+	color: #d6d6d6;
+}
+
+.window-text-area-dark {
+	background-color: #202020;
+	color: #d6d6d6;
+}
+
+.resize-area-dark path {
+	fill: #444444 !important;
+}
+
+.window-title-dark {
+	background-color: #202020;
+	color: #d6d6d6;
+}
+
+.window-text-area-dark::-webkit-scrollbar-track {
+	background: #202020;
+}
+
+.window-text-area-dark::-webkit-scrollbar-thumb {
+	background: #444444;
+}
+
+.window-text-area-dark::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.window-text-area-dark::-webkit-input-placeholder {
+	color: #e6e6e6;
+}
+
+.window-text-area-dark:-moz-placeholder {
+	color: #e6e6e6;
+}
+
+.window-text-area-dark::-moz-placeholder {
+	color: #e6e6e6;
+}
+
+.window-text-area-dark:-ms-input-placeholder {
+	color: #e6e6e6;
+}
+
+.window-text-area-dark::placeholder {
+	color: #e6e6e6;
+}
+
+.react-contextmenu-dark {
+	background-color: #202020;
+	border: 2px solid #444444;
+	color: #373a3c;
+}
+
+.react-contextmenu-item-dark {
+	color: #d6d6d6;
+	outline-color: #6d6d6d;
+}
+
+.react-contextmenu-item-dark.react-contextmenu-item--active,
+.react-contextmenu-item-dark.react-contextmenu-item--selected {
+	color: #fff;
+	background-color: #6d6d6d;
+	border-color: #6d6d6d;
+}
+
+.window-root-pink {
+	color: #fff;
+}
+
+.window-head-pink {
+	background-color: #ffacd5;
+	border-top: 2px solid #f16ac4;
+	border-left: 2px solid #f16ac4;
+	border-right: 2px solid #f16ac4;
+}
+
+.window-body-pink {
+	background-color: #ffacd5;
+	border: 2px solid #f16ac4;
+}
+
+.x-button-pink {
+	background-color: #ffacd5;
+	color: #fff;
+}
+
+.window-text-area-pink {
+	background-color: #ffacd5;
+	color: #fff;
+}
+
+.resize-area-pink path {
+	fill: #f16ac4 !important;
+}
+
+.window-title-pink {
+	background-color: #ffacd5;
+	color: #fff;
+}
+
+.window-text-area-pink::-webkit-scrollbar-track {
+	background: #ffacd5;
+}
+
+.window-text-area-pink::-webkit-scrollbar-thumb {
+	background: #f16ac4;
+}
+
+.window-text-area-pink::-webkit-scrollbar-thumb:hover {
+	background: #fa75ce;
+}
+
+.window-text-area-pink::-webkit-input-placeholder {
+	color: rgb(255, 246, 253);
+}
+
+.window-text-area-pink:-moz-placeholder {
+	color: rgb(255, 246, 253);
+}
+
+.window-text-area-pink::-moz-placeholder {
+	color: rgb(255, 246, 253);
+}
+
+.window-text-area-pink:-ms-input-placeholder {
+	color: rgb(255, 246, 253);
+}
+
+.window-text-area-pink::placeholder {
+	color: rgb(255, 246, 253);
+}
+
+.react-contextmenu-pink {
+	background-color: #ffacd5;
+	border: 2px solid #f16ac4;
+	color: #f16ac4;
+}
+
+.react-contextmenu-item-pink {
+	color: #fff;
+	outline-color: #f16ac4;
+}
+
+.react-contextmenu-item-pink.react-contextmenu-item--active,
+.react-contextmenu-item-pink.react-contextmenu-item--selected {
+	color: #fff;
+	background-color: #f16ac4;
+	border-color: #f16ac4;
+}
+
+.window-root-light {
+	color: #000000;
+}
+
+.window-head-light {
+	background-color: #e0e0e0;
+	border-top: 2px solid #acacac;
+	border-left: 2px solid #acacac;
+	border-right: 2px solid #acacac;
+}
+
+.window-body-light {
+	background-color: #e0e0e0;
+	border: 2px solid #acacac;
+}
+
+.x-button-light {
+	background-color: #e0e0e0;
+	color: #d6d6d6;
+}
+
+.window-text-area-light {
+	background-color: #e0e0e0;
+	color: #000000;
+}
+
+.window-title-light {
+	background-color: #e0e0e0;
+	color: #000000;
+}
+
+.window-text-area-light::-webkit-scrollbar-track {
+	background: #e0e0e0;
+}
+
+.window-text-area-light::-webkit-scrollbar-thumb {
+	background: #adadad;
+}
+
+.window-text-area-light::-webkit-scrollbar-thumb:hover {
+	background: #c0c0c0;
+}
+
+.window-text-area-light::-webkit-input-placeholder {
+	color: #1f1f1f;
+}
+
+.window-text-area-light:-moz-placeholder {
+	color: #1f1f1f;
+}
+
+.window-text-area-light::-moz-placeholder {
+	color: #1f1f1f;
+}
+
+.window-text-area-light:-ms-input-placeholder {
+	color: #1f1f1f;
+}
+
+.window-text-area-light::placeholder {
+	color: #1f1f1f;
+}
+
+.resize-area-light path {
+	fill: #acacac !important;
+}
+
+.react-contextmenu-light {
+	background-color: #e0e0e0;
+	border: 2px solid #acacac;
+	color: #acacac;
+}
+
+.react-contextmenu-item-light {
+	color: #d6d6d6;
+	outline-color: #acacac;
+}
+
+.react-contextmenu-item-light.react-contextmenu-item--active,
+.react-contextmenu-item-light.react-contextmenu-item--selected {
+	color: #000000;
+	background-color: #acacac;
+	border-color: #acacac;
+}

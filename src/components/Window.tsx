@@ -3,9 +3,8 @@ import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 
 import { RESIZER_OFFSET, RESIZER_SIZE } from "../constants";
 
-import CornerIcon from "../img/corner_2.svg";
-
 import "../css/Window.css";
+import "../css/WindowTheme.css";
 
 export type Window = {
 	id: number;
@@ -24,6 +23,7 @@ export type Window = {
 
 interface IWindowProps {
 	window: Window;
+	theme: string;
 
 	onMouseDown: (
 		id: number,
@@ -117,10 +117,29 @@ export default class WindowComponent extends Component<
 	}
 
 	render() {
+		// let resize = (
+		// 	<img
+		// 		className={`resize-area corner-img resize-area-${this.props.theme}`}
+		// 		draggable={false}
+		// 		style={{
+		// 			position: "absolute",
+		// 			right: `${RESIZER_OFFSET}px`,
+		// 			bottom: `${RESIZER_OFFSET}px`,
+		// 			width: `${RESIZER_SIZE}px`,
+		// 			height: `${RESIZER_SIZE}px`
+		// 		}}
+		// 		src={CornerIcon}
+		// 		alt=""
+		// 		onMouseDown={this.handleMouseDownResize}
+		// 	/>
+		// );
+
 		let resize = (
-			<img
-				className="resize-area corner-img"
-				draggable={false}
+			<svg
+				viewBox="0 0 640 640"
+				width={64}
+				height={64}
+				className={`resize-area resize-area-${this.props.theme}`}
 				style={{
 					position: "absolute",
 					right: `${RESIZER_OFFSET}px`,
@@ -128,10 +147,13 @@ export default class WindowComponent extends Component<
 					width: `${RESIZER_SIZE}px`,
 					height: `${RESIZER_SIZE}px`
 				}}
-				src={CornerIcon}
-				alt=""
 				onMouseDown={this.handleMouseDownResize}
-			/>
+			>
+				<path
+					id="audlY2A0S"
+					d="M674.58 -29.79L719.83 15.46L12.72 722.57L-32.53 677.31L674.58 -29.79Z"
+				/>
+			</svg>
 		);
 
 		return (
@@ -147,14 +169,14 @@ export default class WindowComponent extends Component<
 			>
 				<ContextMenuTrigger id={`ctx_men_trig_${this.props.window.id}`}>
 					<table
-						className="window-root"
+						className={`window-root window-root-${this.props.theme}`}
 						style={{
 							width: `${this.props.window.width}px`,
 							height: `${this.props.window.height}px`
 						}}
 					>
 						<thead
-							className="window-head"
+							className={`window-head window-head-${this.props.theme}`}
 							onMouseDown={this.handleMouseDownHeader}
 						>
 							<tr>
@@ -169,7 +191,7 @@ export default class WindowComponent extends Component<
 										>
 											<input
 												type="text"
-												className="window-title"
+												className={`window-title window-title-${this.props.theme}`}
 												placeholder="Title"
 												value={this.props.window.title}
 												onChange={this.handleTitleInput}
@@ -177,7 +199,7 @@ export default class WindowComponent extends Component<
 										</span>
 										<span style={{ float: "right" }}>
 											<button
-												className="x-button ignore-mousedown"
+												className={`x-button x-button-${this.props.theme} ignore-mousedown`}
 												onClick={this.handleCloseClick}
 											>
 												x
@@ -187,12 +209,14 @@ export default class WindowComponent extends Component<
 								</th>
 							</tr>
 						</thead>
-						<tbody className="window-body">
+						<tbody
+							className={`window-body window-body-${this.props.theme}`}
+						>
 							<tr>
 								<td>
 									<textarea
 										ref={this.textAreaRef}
-										className="window-text-area"
+										className={`window-text-area window-text-area-${this.props.theme}`}
 										placeholder="Enter some text..."
 										spellCheck={false}
 										style={{
@@ -209,13 +233,22 @@ export default class WindowComponent extends Component<
 				</ContextMenuTrigger>
 				{!this.props.window.size_lock && resize}
 
-				<ContextMenu id={`ctx_men_trig_${this.props.window.id}`}>
-					<MenuItem onClick={this.handleLockUnlockPosition}>
+				<ContextMenu
+					id={`ctx_men_trig_${this.props.window.id}`}
+					className={`react-contextmenu-${this.props.theme}`}
+				>
+					<MenuItem
+						onClick={this.handleLockUnlockPosition}
+						className={`react-contextmenu-item-${this.props.theme}`}
+					>
 						{this.props.window.pos_lock
 							? "Unlock Position"
 							: "Lock Position"}
 					</MenuItem>
-					<MenuItem onClick={this.handleLockUnlockResize}>
+					<MenuItem
+						onClick={this.handleLockUnlockResize}
+						className={`react-contextmenu-item-${this.props.theme}`}
+					>
 						{this.props.window.size_lock
 							? "Unlock Resize"
 							: "Lock Resize"}

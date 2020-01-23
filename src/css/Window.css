@@ -1,13 +1,5 @@
 .window-root {
 	border-collapse: collapse;
-	color: #d6d6d6;
-}
-
-.window-head {
-	background-color: #202020;
-	border-top: 2px solid #444444;
-	border-left: 2px solid #444444;
-	border-right: 2px solid #444444;
 }
 
 .window-head > tr {
@@ -15,15 +7,8 @@
 	line-height: 30px;
 }
 
-.window-body {
-	background-color: #202020;
-	border: 2px solid #444444;
-}
-
 .x-button {
 	border: none;
-	background-color: #202020;
-	color: #d6d6d6;
 	outline: none;
 	display: inline-block;
 	font-size: large;
@@ -34,8 +19,6 @@
 	border-collapse: collapse;
 	border: none;
 	outline: none;
-	background-color: #202020;
-	color: #d6d6d6;
 	height: 97%;
 	display: block;
 	margin-left: auto;
@@ -46,8 +29,6 @@
 	border-collapse: collapse;
 	outline: none;
 	border: none;
-	background-color: #202020;
-	color: #d6d6d6;
 	margin-left: 5px;
 	width: 100%;
 }
@@ -57,10 +38,7 @@
 }
 
 .react-contextmenu {
-	background-color: #202020;
 	background-clip: padding-box;
-	border: 2px solid #444444;
-	color: #373a3c;
 	font-size: 16px;
 	margin: 2px 0 0;
 	min-width: 160px;
@@ -81,21 +59,16 @@
 .react-contextmenu-item {
 	background: 0 0;
 	border: 0;
-	color: #d6d6d6;
 	cursor: pointer;
 	font-weight: 400;
 	line-height: 1.5;
 	padding: 3px 20px;
 	text-align: inherit;
 	white-space: nowrap;
-	outline-color: #6d6d6d;
 }
 
 .react-contextmenu-item.react-contextmenu-item--active,
 .react-contextmenu-item.react-contextmenu-item--selected {
-	color: #fff;
-	background-color: #6d6d6d;
-	border-color: #6d6d6d;
 	text-decoration: none;
 }
 

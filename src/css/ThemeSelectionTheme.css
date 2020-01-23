@@ -1,0 +1,29 @@
+.theme-root-dark {
+	background-color: #202020;
+	border: 2px solid #444444;
+}
+
+.theme-root-pink {
+	background-color: #ffacd5;
+	border: 2px solid #f16ac4;
+}
+
+.theme-root-light {
+	background-color: #e0e0e0;
+	border: 2px solid #acacac;
+}
+
+.theme-darktheme {
+	background-color: #202020;
+	border: 2px solid #444444;
+}
+
+.theme-pinktheme {
+	background-color: #ffacd5;
+	border: 2px solid #f16ac4;
+}
+
+.theme-lighttheme {
+	background-color: #e0e0e0;
+	border: 2px solid #acacac;
+}

@@ -8,5 +8,6 @@ export const HEADER_SIZE = 30;
 
 export const SAVE_KEY = "save";
 export const SAVE_HISTORY_KEY = "history";
+export const SAVE_THEME_KEY = "theme";
 
 export const KEYPRESS_HISTORY_INTERVAL_MS = 500;

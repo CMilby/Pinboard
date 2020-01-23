@@ -3,16 +3,19 @@ import React, { Component } from "react";
 import WindowComponent, { Window } from "./components/Window";
 import CreateWindow from "./components/CreateWindow";
 import Menu from "./components/Menu";
+import ThemeSelection from "./components/ThemeSelection";
 
 import {
 	MIN_WINDOW_WIDTH,
 	MIN_WINDOW_HEIGHT,
 	SAVE_KEY,
 	SAVE_HISTORY_KEY,
-	KEYPRESS_HISTORY_INTERVAL_MS
+	KEYPRESS_HISTORY_INTERVAL_MS,
+	SAVE_THEME_KEY
 } from "./constants";
 
 import "./css/App.css";
+import "./css/AppTheme.css";
 
 interface IAppProps {}
 
@@ -35,6 +38,9 @@ interface IAppState {
 		width: number;
 		height: number;
 	};
+
+	show_theme_selection: boolean;
+	theme: string;
 }
 
 export default class App extends Component<IAppProps, IAppState> {
@@ -79,7 +85,10 @@ export default class App extends Component<IAppProps, IAppState> {
 				start_y: -1,
 				width: 0,
 				height: 0
-			}
+			},
+
+			show_theme_selection: false,
+			theme: "dark"
 		};
 
 		this.handleMouseDown = this.handleMouseDown.bind(this);
@@ -97,6 +106,9 @@ export default class App extends Component<IAppProps, IAppState> {
 
 		this.undo = this.undo.bind(this);
 		this.createWindow = this.createWindow.bind(this);
+
+		this.toggleThemeSelection = this.toggleThemeSelection.bind(this);
+		this.setTheme = this.setTheme.bind(this);
 	}
 
 	componentDidMount() {
@@ -108,6 +120,11 @@ export default class App extends Component<IAppProps, IAppState> {
 		let history = localStorage.getItem(SAVE_HISTORY_KEY);
 		if (history !== null) {
 			this.setState({ history: JSON.parse(history) });
+		}
+
+		let theme = localStorage.getItem(SAVE_THEME_KEY);
+		if (theme !== null) {
+			this.setState({ theme });
 		}
 	}
 
@@ -462,6 +479,18 @@ export default class App extends Component<IAppProps, IAppState> {
 		localStorage.setItem(SAVE_KEY, JSON.stringify(windows));
 	}
 
+	toggleThemeSelection() {
+		this.setState(prevState => ({
+			show_theme_selection: !prevState.show_theme_selection
+		}));
+	}
+
+	setTheme(theme: string) {
+		this.setState({ theme });
+
+		localStorage.setItem(SAVE_THEME_KEY, theme);
+	}
+
 	render() {
 		let windows = this.state.windows.map(
 			(window: Window, index: number) => {
@@ -469,6 +498,7 @@ export default class App extends Component<IAppProps, IAppState> {
 					<WindowComponent
 						key={`window_${window.id}`}
 						window={window}
+						theme={this.state.theme}
 						onMouseDown={this.onMouseDownWindowHeader}
 						onTextAreaChange={this.onTextChange}
 						onTitleChange={this.onTitleChange}
@@ -490,9 +520,13 @@ export default class App extends Component<IAppProps, IAppState> {
 			/>
 		);
 
+		let themeSelection = (
+			<ThemeSelection theme={this.state.theme} setTheme={this.setTheme} />
+		);
+
 		return (
 			<div
-				className="app-root no-select"
+				className={`app-root app-root-${this.state.theme} no-select`}
 				onMouseMove={this.handleMouseMove}
 				onMouseDown={this.handleMouseDown}
 				onMouseUp={this.handleMouseUp}
@@ -501,9 +535,12 @@ export default class App extends Component<IAppProps, IAppState> {
 				{this.state.create.creating && create}
 				<Menu
 					historySize={this.state.history.length}
+					theme={this.state.theme}
 					createWindow={this.createWindow}
 					onUndo={this.undo}
+					toggleThemeSelection={this.toggleThemeSelection}
 				/>
+				{this.state.show_theme_selection && themeSelection}
 			</div>
 		);
 	}

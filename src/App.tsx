@@ -56,19 +56,7 @@ export default class App extends Component<IAppProps, IAppState> {
 		super(props);
 
 		this.state = {
-			windows: [
-				{
-					id: Date.now(),
-					x: 100,
-					y: 100,
-					width: 500,
-					height: 400,
-					title: "New Pin",
-					text: "This is some text",
-					pos_lock: false,
-					size_lock: false
-				}
-			],
+			windows: [],
 			history: [],
 
 			window_event: {
@@ -106,6 +94,7 @@ export default class App extends Component<IAppProps, IAppState> {
 
 		this.undo = this.undo.bind(this);
 		this.createWindow = this.createWindow.bind(this);
+		this.createHelpWindow = this.createHelpWindow.bind(this);
 
 		this.toggleThemeSelection = this.toggleThemeSelection.bind(this);
 		this.setTheme = this.setTheme.bind(this);
@@ -114,7 +103,14 @@ export default class App extends Component<IAppProps, IAppState> {
 	componentDidMount() {
 		let windows = localStorage.getItem(SAVE_KEY);
 		if (windows !== null) {
-			this.setState({ windows: JSON.parse(windows) });
+			let windowObj = JSON.parse(windows);
+			if (windowObj.length === 0) {
+				this.createHelpWindow();
+			} else {
+				this.setState({ windows: windowObj });
+			}
+		} else {
+			this.createHelpWindow();
 		}
 
 		let history = localStorage.getItem(SAVE_HISTORY_KEY);
@@ -384,6 +380,28 @@ export default class App extends Component<IAppProps, IAppState> {
 		this.setState({ windows });
 	}
 
+	createHelpWindow() {
+		this.createWindow(
+			"Pinboard Help",
+			"Pinboard is a not taking app that allows you to draw new windows to take notes in. " +
+				"Click on the windows title to rename the window or click on the window " +
+				"body to type in the note. Click and drag your mouse anywhere else " +
+				"to create a new window. Drag from a window's lower right corner to resize " +
+				"your window or click and drag in the window title to move it around. " +
+				"Right click on a window to lock the size or position and then right click again " +
+				"to unlock it. All changes are saved to local storage so " +
+				"all your notes will be kept even when you close the window.\n\n" +
+				"Click on the palette icon to change Pinboard's theme or the undo button " +
+				"to undo the most recent changes you've made.\n\nFind a bug? Let me know! " +
+				"Send me an email to cmilby99@gmail.com or see the code yourself at " +
+				"http://github.com/CMilby/Pinboard and file an issue.",
+			50,
+			50,
+			600,
+			265
+		);
+	}
+
 	createWindow(
 		title: string,
 		text: string,
@@ -537,6 +555,7 @@ export default class App extends Component<IAppProps, IAppState> {
 					historySize={this.state.history.length}
 					theme={this.state.theme}
 					createWindow={this.createWindow}
+					createHelpWindow={this.createHelpWindow}
 					onUndo={this.undo}
 					toggleThemeSelection={this.toggleThemeSelection}
 				/>

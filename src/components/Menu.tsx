@@ -24,6 +24,7 @@ interface IMenuProps {
 		width: number,
 		height: number
 	) => void;
+	createHelpWindow: () => void;
 
 	onUndo: () => void;
 
@@ -50,25 +51,7 @@ export default class Menu extends Component<IMenuProps, IMenuState> {
 	}
 
 	handleHelpButtonClick() {
-		this.props.createWindow(
-			"Pinboard Help",
-			"Pinboard is a not taking app that allows you to draw new windows to take notes in. " +
-				"Click on the windows title to rename the window or click on the window " +
-				"body to type in the note. Click and drag your mouse anywhere else " +
-				"to create a new window. Drag from a window's lower right corner to resize " +
-				"your window or click and drag in the window title to move it around. " +
-				"Right click on a window to lock the size or position and then right click again " +
-				"to unlock it. All changes are saved to local storage so " +
-				"all your notes will be kept even when you close the window.\n\n" +
-				"Click on the palette icon to change Pinboard's theme or the undo button " +
-				"to undo the most recent changes you've made.\n\nFind a bug? Let me know! " +
-				"Send me an email to cmilby99@gmail.com or see the code yourself at " +
-				"http://github.com/CMilby/Pinboard and file an issue.",
-			50,
-			50,
-			600,
-			265
-		);
+		this.props.createHelpWindow();
 	}
 
 	handleContactButtonClick() {

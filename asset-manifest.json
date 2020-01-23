@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pinboard/static/css/main.5c6b0130.chunk.css",
+    "main.js": "/pinboard/static/js/main.be6c6fcf.chunk.js",
+    "main.js.map": "/pinboard/static/js/main.be6c6fcf.chunk.js.map",
+    "runtime-main.js": "/pinboard/static/js/runtime-main.0bfeeb75.js",
+    "runtime-main.js.map": "/pinboard/static/js/runtime-main.0bfeeb75.js.map",
+    "static/js/2.1c46469b.chunk.js": "/pinboard/static/js/2.1c46469b.chunk.js",
+    "static/js/2.1c46469b.chunk.js.map": "/pinboard/static/js/2.1c46469b.chunk.js.map",
+    "index.html": "/pinboard/index.html",
+    "precache-manifest.8548e17f55a5bf298de9110ecf10dece.js": "/pinboard/precache-manifest.8548e17f55a5bf298de9110ecf10dece.js",
+    "service-worker.js": "/pinboard/service-worker.js",
+    "static/css/main.5c6b0130.chunk.css.map": "/pinboard/static/css/main.5c6b0130.chunk.css.map",
+    "static/js/2.1c46469b.chunk.js.LICENSE": "/pinboard/static/js/2.1c46469b.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bfeeb75.js",
+    "static/js/2.1c46469b.chunk.js",
+    "static/css/main.5c6b0130.chunk.css",
+    "static/js/main.be6c6fcf.chunk.js"
+  ]
+}
